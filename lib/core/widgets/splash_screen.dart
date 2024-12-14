@@ -1,0 +1,69 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
+
+import '../functions/navigations_functions.dart';
+import '../managers/styles_manager/color_manager.dart';
+import '../service_locator/service_locator.dart';
+import 'initial_screen.dart';
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+}
+
+Future<void> _firebaseInitializer() async {
+  await Firebase.initializeApp();
+}
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    _firebaseInitializer();
+    setUpServiceLocator();
+    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+    _navigateAfterDelay();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: ColorController.blackColor,
+      body: Center(
+        child: Image.asset(
+          'assets/images/shortsSplash.png',
+        ),
+      ),
+
+      // Image.asset(
+      //   constSplashImage,
+      //   height: MediaQuery.of(context).size.height,
+      //   width: MediaQuery.of(context).size.width,
+      //   fit: BoxFit.cover,
+      // ),
+    );
+  }
+
+  void _navigateAfterDelay() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.microtask(() async {
+        await Future.delayed(const Duration(seconds: 4));
+
+        if (mounted) {
+          NavigationManager.navigateAndFinish(
+            context: context,
+            screen: const InitialScreen(),
+          );
+        }
+      });
+    });
+  }
+}
