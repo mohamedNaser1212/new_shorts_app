@@ -68,8 +68,7 @@ class LoginScreenBodyState extends State<LoginScreenBody> {
                     NavigationManager.navigateTo(
                       context: context,
                       screen: const RegisterScreen(),
-                      navigationAnimationType: NavigationAnimationType
-                          .sliding,
+                      navigationAnimationType: NavigationAnimationType.sliding,
                     );
                   },
                 ),

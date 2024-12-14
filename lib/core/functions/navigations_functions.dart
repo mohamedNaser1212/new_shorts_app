@@ -91,6 +91,7 @@ class FadeTransitionBuilder extends PageRouteBuilder {
               child: child,
             );
           },
+          transitionDuration: const Duration(milliseconds: 500), // Half second
         );
 }
 
@@ -105,6 +106,7 @@ class PageRotation extends PageRouteBuilder {
               child: child,
             );
           },
+          transitionDuration: const Duration(seconds: 1),
         );
 }
 
@@ -119,6 +121,7 @@ class PageScaleTransition extends PageRouteBuilder {
               child: child,
             );
           },
+          transitionDuration: const Duration(milliseconds: 500),
         );
 }
 
@@ -133,6 +136,7 @@ class SizeTransitionBuilder extends PageRouteBuilder {
               child: child,
             );
           },
+          transitionDuration: const Duration(milliseconds: 700),
         );
 }
 
@@ -150,5 +154,6 @@ class SlideTransitionBuilder extends PageRouteBuilder {
               child: child,
             );
           },
+          transitionDuration: const Duration(milliseconds: 500), // Half second
         );
 }
