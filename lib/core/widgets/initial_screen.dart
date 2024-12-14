@@ -19,7 +19,7 @@ class _InitialScreenState extends State<InitialScreen> {
   @override
   void initState() {
     super.initState();
-    UserInfoCubit.get(context).getUserData();
+    UserInfoCubit.get(context).getUser();
   }
 
   @override
@@ -46,7 +46,7 @@ class _InitialScreenState extends State<InitialScreen> {
         body: Center(
           child: ConnectionFailureWidget(
             onPressed: () {
-              UserInfoCubit.get(context).getUserData();
+              UserInfoCubit.get(context).getUser();
             },
           ),
         ),

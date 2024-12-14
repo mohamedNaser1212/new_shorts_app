@@ -72,7 +72,7 @@ class _SettingsFormBodyState extends State<SettingsFormBody> {
     // } else
 
     if (state is UpdateUserDataSuccessState) {
-      UserInfoCubit.get(context).getUserData();
+      UserInfoCubit.get(context).getUser();
       ToastHelper.showToast(
         message: 'Data updated successfully',
         color: ColorController.greenColor,

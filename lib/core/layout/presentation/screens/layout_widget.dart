@@ -54,7 +54,7 @@ class LayoutScreenState extends State<LayoutScreen> {
         BlocListener<FollowCubit, FollowState>(
           listener: (context, state) {
             if (state is ToggleFollowSuccessState) {
-              UserInfoCubit.get(context).getUserData();
+              UserInfoCubit.get(context).getUser();
             }
           },
         ),

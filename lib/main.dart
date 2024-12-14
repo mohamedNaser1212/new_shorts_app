@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt<UserInfoCubit>()..getUserData(),
+          create: (context) => getIt<UserInfoCubit>()..getUser(),
         ),
         BlocProvider(
           create: (context) => getIt<VideoCubit>(),

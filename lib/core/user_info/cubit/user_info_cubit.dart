@@ -15,7 +15,7 @@ class UserInfoCubit extends Cubit<UserInfoState> {
   final GetUserInfoUseCase getUserUseCase;
   UserEntity? userEntity;
 
-  Future<void> getUserData() async {
+  Future<void> getUser() async {
     emit(GetUserInfoLoadingState());
     final result = await getUserUseCase.call();
     result.fold(
