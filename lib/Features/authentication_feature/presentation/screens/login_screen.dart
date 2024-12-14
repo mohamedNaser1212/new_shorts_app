@@ -51,11 +51,12 @@ class LoginScreen extends StatelessWidget {
           screen: const InitialScreen(),
         );
       } else {
-        NavigationManager.navigateToWithTransition(
+        NavigationManager.navigateTo(
           context: context,
           screen: VerificationScreen(
             userId: state.userEntity.id!,
           ),
+          navigationAnimationType:  NavigationAnimationType.scaling,
         );
       }
     } else if (state is LoginErrorState) {

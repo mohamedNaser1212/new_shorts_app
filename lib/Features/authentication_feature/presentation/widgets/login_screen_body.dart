@@ -65,9 +65,11 @@ class LoginScreenBodyState extends State<LoginScreenBody> {
                 AuthStatusTextWidget(
                   title: 'Don\'t Have An Account?',
                   onTap: () {
-                    NavigationManager.navigateToWithTransition(
+                    NavigationManager.navigateTo(
                       context: context,
                       screen: const RegisterScreen(),
+                      navigationAnimationType: NavigationAnimationType
+                          .sliding,
                     );
                   },
                 ),

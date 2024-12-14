@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_shorts_app/Features/search/presentation/widgets/search_screen_body.dart';
+import 'package:new_shorts_app/core/functions/navigations_functions.dart';
 import 'package:new_shorts_app/core/widgets/custom_title.dart';
 
 import '../../../../core/managers/styles_manager/color_manager.dart';
@@ -12,23 +13,10 @@ class DummySearchField extends StatelessWidget {
     return SafeArea(
       child: GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
-            PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) =>
-                  const SearchScreenBody(),
-              transitionsBuilder:
-                  (context, animation, secondaryAnimation, child) {
-                var opacityTween =
-                    Tween(begin: 0.0, end: 1.0).animate(animation);
-
-                return FadeTransition(
-                  opacity: opacityTween,
-                  child: child,
-                );
-              },
-              transitionDuration: const Duration(milliseconds: 500),
-            ),
+          NavigationManager.navigateTo(
+            context: context,
+            screen: const SearchScreenBody(),
+            navigationAnimationType: NavigationAnimationType.fading,
           );
         },
         child: Padding(
